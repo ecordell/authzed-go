@@ -158,10 +158,10 @@ func (m *RelationshipFilter) Validate() error {
 		return nil
 	}
 
-	if len(m.GetResourceType()) > 128 {
+	if len(m.GetResourceType()) > 1024 {
 		return RelationshipFilterValidationError{
 			field:  "ResourceType",
-			reason: "value length must be at most 128 bytes",
+			reason: "value length must be at most 1024 bytes",
 		}
 	}
 
@@ -172,24 +172,24 @@ func (m *RelationshipFilter) Validate() error {
 		}
 	}
 
-	if len(m.GetOptionalResourceId()) > 128 {
+	if len(m.GetOptionalResourceId()) > 1024 {
 		return RelationshipFilterValidationError{
 			field:  "OptionalResourceId",
-			reason: "value length must be at most 128 bytes",
+			reason: "value length must be at most 1024 bytes",
 		}
 	}
 
 	if !_RelationshipFilter_OptionalResourceId_Pattern.MatchString(m.GetOptionalResourceId()) {
 		return RelationshipFilterValidationError{
 			field:  "OptionalResourceId",
-			reason: "value does not match regex pattern \"^([a-zA-Z0-9_][a-zA-Z0-9/_-]{0,127})?$\"",
+			reason: "value does not match regex pattern \"^([a-zA-Z0-9_][a-zA-Z0-9/_-])?$\"",
 		}
 	}
 
-	if len(m.GetOptionalRelation()) > 64 {
+	if len(m.GetOptionalRelation()) > 1024 {
 		return RelationshipFilterValidationError{
 			field:  "OptionalRelation",
-			reason: "value length must be at most 64 bytes",
+			reason: "value length must be at most 1024 bytes",
 		}
 	}
 
@@ -271,7 +271,7 @@ var _ interface {
 
 var _RelationshipFilter_ResourceType_Pattern = regexp.MustCompile("^([a-z][a-z0-9_]{2,61}[a-z0-9]/)?[a-z][a-z0-9_]{2,62}[a-z0-9]$")
 
-var _RelationshipFilter_OptionalResourceId_Pattern = regexp.MustCompile("^([a-zA-Z0-9_][a-zA-Z0-9/_-]{0,127})?$")
+var _RelationshipFilter_OptionalResourceId_Pattern = regexp.MustCompile("^([a-zA-Z0-9_][a-zA-Z0-9/_-])?$")
 
 var _RelationshipFilter_OptionalRelation_Pattern = regexp.MustCompile("^([a-z][a-z0-9_]{2,62}[a-z0-9])?$")
 
@@ -283,10 +283,10 @@ func (m *SubjectFilter) Validate() error {
 		return nil
 	}
 
-	if len(m.GetSubjectType()) > 128 {
+	if len(m.GetSubjectType()) > 1024 {
 		return SubjectFilterValidationError{
 			field:  "SubjectType",
-			reason: "value length must be at most 128 bytes",
+			reason: "value length must be at most 1024 bytes",
 		}
 	}
 
@@ -297,17 +297,17 @@ func (m *SubjectFilter) Validate() error {
 		}
 	}
 
-	if len(m.GetOptionalSubjectId()) > 128 {
+	if len(m.GetOptionalSubjectId()) > 1024 {
 		return SubjectFilterValidationError{
 			field:  "OptionalSubjectId",
-			reason: "value length must be at most 128 bytes",
+			reason: "value length must be at most 1024 bytes",
 		}
 	}
 
 	if !_SubjectFilter_OptionalSubjectId_Pattern.MatchString(m.GetOptionalSubjectId()) {
 		return SubjectFilterValidationError{
 			field:  "OptionalSubjectId",
-			reason: "value does not match regex pattern \"^([a-zA-Z0-9_][a-zA-Z0-9/_-]{0,127})?$\"",
+			reason: "value does not match regex pattern \"^([a-zA-Z0-9_][a-zA-Z0-9/_-])?$\"",
 		}
 	}
 
@@ -380,7 +380,7 @@ var _ interface {
 
 var _SubjectFilter_SubjectType_Pattern = regexp.MustCompile("^([a-z][a-z0-9_]{2,61}[a-z0-9]/)?[a-z][a-z0-9_]{2,62}[a-z0-9]$")
 
-var _SubjectFilter_OptionalSubjectId_Pattern = regexp.MustCompile("^([a-zA-Z0-9_][a-zA-Z0-9/_-]{0,127})?$")
+var _SubjectFilter_OptionalSubjectId_Pattern = regexp.MustCompile("^([a-zA-Z0-9_][a-zA-Z0-9/_-])?$")
 
 // Validate checks the field values on ReadRelationshipsRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -1059,10 +1059,10 @@ func (m *CheckPermissionRequest) Validate() error {
 		}
 	}
 
-	if len(m.GetPermission()) > 64 {
+	if len(m.GetPermission()) > 1024 {
 		return CheckPermissionRequestValidationError{
 			field:  "Permission",
-			reason: "value length must be at most 64 bytes",
+			reason: "value length must be at most 1024 bytes",
 		}
 	}
 
@@ -1265,10 +1265,10 @@ func (m *ExpandPermissionTreeRequest) Validate() error {
 		}
 	}
 
-	if len(m.GetPermission()) > 64 {
+	if len(m.GetPermission()) > 1024 {
 		return ExpandPermissionTreeRequestValidationError{
 			field:  "Permission",
-			reason: "value length must be at most 64 bytes",
+			reason: "value length must be at most 1024 bytes",
 		}
 	}
 
@@ -1447,10 +1447,10 @@ func (m *LookupResourcesRequest) Validate() error {
 		}
 	}
 
-	if len(m.GetResourceObjectType()) > 128 {
+	if len(m.GetResourceObjectType()) > 1024 {
 		return LookupResourcesRequestValidationError{
 			field:  "ResourceObjectType",
-			reason: "value length must be at most 128 bytes",
+			reason: "value length must be at most 1024 bytes",
 		}
 	}
 
@@ -1461,10 +1461,10 @@ func (m *LookupResourcesRequest) Validate() error {
 		}
 	}
 
-	if len(m.GetPermission()) > 64 {
+	if len(m.GetPermission()) > 1024 {
 		return LookupResourcesRequestValidationError{
 			field:  "Permission",
-			reason: "value length must be at most 64 bytes",
+			reason: "value length must be at most 1024 bytes",
 		}
 	}
 
@@ -1642,10 +1642,10 @@ func (m *SubjectFilter_RelationFilter) Validate() error {
 		return nil
 	}
 
-	if len(m.GetRelation()) > 64 {
+	if len(m.GetRelation()) > 1024 {
 		return SubjectFilter_RelationFilterValidationError{
 			field:  "Relation",
-			reason: "value length must be at most 64 bytes",
+			reason: "value length must be at most 1024 bytes",
 		}
 	}
 

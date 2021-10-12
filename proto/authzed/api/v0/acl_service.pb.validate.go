@@ -41,10 +41,10 @@ func (m *RelationTupleFilter) Validate() error {
 		return nil
 	}
 
-	if len(m.GetNamespace()) > 128 {
+	if len(m.GetNamespace()) > 1024 {
 		return RelationTupleFilterValidationError{
 			field:  "Namespace",
-			reason: "value length must be at most 128 bytes",
+			reason: "value length must be at most 1024 bytes",
 		}
 	}
 
@@ -55,24 +55,24 @@ func (m *RelationTupleFilter) Validate() error {
 		}
 	}
 
-	if len(m.GetObjectId()) > 128 {
+	if len(m.GetObjectId()) > 1024 {
 		return RelationTupleFilterValidationError{
 			field:  "ObjectId",
-			reason: "value length must be at most 128 bytes",
+			reason: "value length must be at most 1024 bytes",
 		}
 	}
 
 	if !_RelationTupleFilter_ObjectId_Pattern.MatchString(m.GetObjectId()) {
 		return RelationTupleFilterValidationError{
 			field:  "ObjectId",
-			reason: "value does not match regex pattern \"^([a-zA-Z0-9_][a-zA-Z0-9/_-]{0,127})?$\"",
+			reason: "value does not match regex pattern \"^([a-zA-Z0-9_][a-zA-Z0-9/_-])?$\"",
 		}
 	}
 
-	if len(m.GetRelation()) > 64 {
+	if len(m.GetRelation()) > 1024 {
 		return RelationTupleFilterValidationError{
 			field:  "Relation",
-			reason: "value length must be at most 64 bytes",
+			reason: "value length must be at most 1024 bytes",
 		}
 	}
 
@@ -166,7 +166,7 @@ var _ interface {
 
 var _RelationTupleFilter_Namespace_Pattern = regexp.MustCompile("^([a-z][a-z0-9_]{2,61}[a-z0-9]/)?[a-z][a-z0-9_]{2,62}[a-z0-9]$")
 
-var _RelationTupleFilter_ObjectId_Pattern = regexp.MustCompile("^([a-zA-Z0-9_][a-zA-Z0-9/_-]{0,127})?$")
+var _RelationTupleFilter_ObjectId_Pattern = regexp.MustCompile("^([a-zA-Z0-9_][a-zA-Z0-9/_-])?$")
 
 var _RelationTupleFilter_Relation_Pattern = regexp.MustCompile("^([a-z][a-z0-9_]{2,62}[a-z0-9])?$")
 

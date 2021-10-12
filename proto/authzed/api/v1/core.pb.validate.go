@@ -58,10 +58,10 @@ func (m *Relationship) Validate() error {
 		}
 	}
 
-	if len(m.GetRelation()) > 64 {
+	if len(m.GetRelation()) > 1024 {
 		return RelationshipValidationError{
 			field:  "Relation",
-			reason: "value length must be at most 64 bytes",
+			reason: "value length must be at most 1024 bytes",
 		}
 	}
 
@@ -166,10 +166,10 @@ func (m *SubjectReference) Validate() error {
 		}
 	}
 
-	if len(m.GetOptionalRelation()) > 64 {
+	if len(m.GetOptionalRelation()) > 1024 {
 		return SubjectReferenceValidationError{
 			field:  "OptionalRelation",
-			reason: "value length must be at most 64 bytes",
+			reason: "value length must be at most 1024 bytes",
 		}
 	}
 
@@ -247,10 +247,10 @@ func (m *ObjectReference) Validate() error {
 		return nil
 	}
 
-	if len(m.GetObjectType()) > 128 {
+	if len(m.GetObjectType()) > 1024 {
 		return ObjectReferenceValidationError{
 			field:  "ObjectType",
-			reason: "value length must be at most 128 bytes",
+			reason: "value length must be at most 1024 bytes",
 		}
 	}
 
@@ -261,17 +261,17 @@ func (m *ObjectReference) Validate() error {
 		}
 	}
 
-	if len(m.GetObjectId()) > 128 {
+	if len(m.GetObjectId()) > 1024 {
 		return ObjectReferenceValidationError{
 			field:  "ObjectId",
-			reason: "value length must be at most 128 bytes",
+			reason: "value length must be at most 1024 bytes",
 		}
 	}
 
 	if !_ObjectReference_ObjectId_Pattern.MatchString(m.GetObjectId()) {
 		return ObjectReferenceValidationError{
 			field:  "ObjectId",
-			reason: "value does not match regex pattern \"^[a-zA-Z0-9_][a-zA-Z0-9/_-]{0,127}$\"",
+			reason: "value does not match regex pattern \"^[a-zA-Z0-9_][a-zA-Z0-9/_-]*$\"",
 		}
 	}
 
@@ -334,7 +334,7 @@ var _ interface {
 
 var _ObjectReference_ObjectType_Pattern = regexp.MustCompile("^([a-z][a-z0-9_]{2,61}[a-z0-9]/)?[a-z][a-z0-9_]{2,62}[a-z0-9]$")
 
-var _ObjectReference_ObjectId_Pattern = regexp.MustCompile("^[a-zA-Z0-9_][a-zA-Z0-9/_-]{0,127}$")
+var _ObjectReference_ObjectId_Pattern = regexp.MustCompile("^[a-zA-Z0-9_][a-zA-Z0-9/_-]*$")
 
 // Validate checks the field values on ZedToken with the rules defined in the
 // proto definition for this message. If any rules are violated, an error is returned.

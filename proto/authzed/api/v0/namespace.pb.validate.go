@@ -135,10 +135,10 @@ func (m *NamespaceDefinition) Validate() error {
 		return nil
 	}
 
-	if len(m.GetName()) > 128 {
+	if len(m.GetName()) > 1024 {
 		return NamespaceDefinitionValidationError{
 			field:  "Name",
-			reason: "value length must be at most 128 bytes",
+			reason: "value length must be at most 1024 bytes",
 		}
 	}
 
@@ -242,10 +242,10 @@ func (m *Relation) Validate() error {
 		return nil
 	}
 
-	if len(m.GetName()) > 64 {
+	if len(m.GetName()) > 1024 {
 		return RelationValidationError{
 			field:  "Name",
-			reason: "value length must be at most 64 bytes",
+			reason: "value length must be at most 1024 bytes",
 		}
 	}
 
@@ -765,10 +765,10 @@ func (m *ComputedUserset) Validate() error {
 		}
 	}
 
-	if len(m.GetRelation()) > 64 {
+	if len(m.GetRelation()) > 1024 {
 		return ComputedUsersetValidationError{
 			field:  "Relation",
-			reason: "value length must be at most 64 bytes",
+			reason: "value length must be at most 1024 bytes",
 		}
 	}
 
@@ -1059,10 +1059,10 @@ func (m *TupleToUserset_Tupleset) Validate() error {
 		return nil
 	}
 
-	if len(m.GetRelation()) > 64 {
+	if len(m.GetRelation()) > 1024 {
 		return TupleToUserset_TuplesetValidationError{
 			field:  "Relation",
-			reason: "value length must be at most 64 bytes",
+			reason: "value length must be at most 1024 bytes",
 		}
 	}
 

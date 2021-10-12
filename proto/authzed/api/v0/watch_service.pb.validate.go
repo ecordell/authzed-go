@@ -51,10 +51,10 @@ func (m *WatchRequest) Validate() error {
 	for idx, item := range m.GetNamespaces() {
 		_, _ = idx, item
 
-		if len(item) > 128 {
+		if len(item) > 1024 {
 			return WatchRequestValidationError{
 				field:  fmt.Sprintf("Namespaces[%v]", idx),
-				reason: "value length must be at most 128 bytes",
+				reason: "value length must be at most 1024 bytes",
 			}
 		}
 

@@ -44,10 +44,10 @@ func (m *ReadSchemaRequest) Validate() error {
 	for idx, item := range m.GetObjectDefinitionsNames() {
 		_, _ = idx, item
 
-		if len(item) > 128 {
+		if len(item) > 1024 {
 			return ReadSchemaRequestValidationError{
 				field:  fmt.Sprintf("ObjectDefinitionsNames[%v]", idx),
-				reason: "value length must be at most 128 bytes",
+				reason: "value length must be at most 1024 bytes",
 			}
 		}
 

@@ -41,10 +41,10 @@ func (m *ReadConfigRequest) Validate() error {
 		return nil
 	}
 
-	if len(m.GetNamespace()) > 128 {
+	if len(m.GetNamespace()) > 1024 {
 		return ReadConfigRequestValidationError{
 			field:  "Namespace",
-			reason: "value length must be at most 128 bytes",
+			reason: "value length must be at most 1024 bytes",
 		}
 	}
 
@@ -406,10 +406,10 @@ func (m *DeleteConfigsRequest) Validate() error {
 	for idx, item := range m.GetNamespaces() {
 		_, _ = idx, item
 
-		if len(item) > 128 {
+		if len(item) > 1024 {
 			return DeleteConfigsRequestValidationError{
 				field:  fmt.Sprintf("Namespaces[%v]", idx),
-				reason: "value length must be at most 128 bytes",
+				reason: "value length must be at most 1024 bytes",
 			}
 		}
 
